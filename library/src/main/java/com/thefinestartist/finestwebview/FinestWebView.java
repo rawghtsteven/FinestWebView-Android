@@ -57,6 +57,9 @@ public class FinestWebView {
     protected Boolean disableIconForward;
     protected Boolean showIconMenu;
     protected Boolean disableIconMenu;
+    protected Boolean showToolBar;
+    protected Boolean disableIconMenu;
+    protected Boolean disableIconMenu;
 
     protected Boolean showSwipeRefreshLayout;
     protected Integer swipeRefreshColor;
@@ -302,6 +305,11 @@ public class FinestWebView {
 
     public Builder disableIconMenu(boolean disableIconMenu) {
       this.disableIconMenu = disableIconMenu;
+      return this;
+    }
+    
+    public Builder showToolBar(boolean showToolBar){
+      this.showToolBar = showToolBar;
       return this;
     }
 
