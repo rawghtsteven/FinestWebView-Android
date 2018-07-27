@@ -143,6 +143,8 @@ public class FinestWebViewActivity extends AppCompatActivity
 
   protected boolean backPressToClose;
   protected int stringResCopiedToClipboard;
+  
+  prtected boolean showToolBar;
 
   protected Boolean webViewSupportZoom;
   protected Boolean webViewMediaPlaybackRequiresUserGesture;
@@ -376,6 +378,8 @@ public class FinestWebViewActivity extends AppCompatActivity
     stringResCopiedToClipboard =
         builder.stringResCopiedToClipboard != null ? builder.stringResCopiedToClipboard
             : R.string.copied_to_clipboard;
+            
+    showToolBar = builder.showToolBar != null ? builder.showToolBar : true;
 
     webViewSupportZoom = builder.webViewSupportZoom;
     webViewMediaPlaybackRequiresUserGesture = builder.webViewMediaPlaybackRequiresUserGesture;
@@ -482,6 +486,7 @@ public class FinestWebViewActivity extends AppCompatActivity
   }
 
   protected void layoutViews() {
+  
     setSupportActionBar(toolbar);
 
     { // AppBar
@@ -566,6 +571,7 @@ public class FinestWebViewActivity extends AppCompatActivity
 
   @SuppressLint("SetJavaScriptEnabled")
   protected void initializeViews() {
+  
     setSupportActionBar(toolbar);
 
     { // StatusBar
@@ -928,6 +934,16 @@ public class FinestWebViewActivity extends AppCompatActivity
       menuOpenWithTv.setTypeface(TypefaceHelper.get(this, menuTextFont));
       menuOpenWithTv.setTextColor(menuTextColor);
       menuOpenWithTv.setPadding((int) menuTextPaddingLeft, 0, (int) menuTextPaddingRight, 0);
+    }
+    
+    if(showToolBar){
+        appBar.setVisibility(View.VISIBLE);
+        toolbar.setVisibility(View.VISIBLE);
+        gradient.setVisibility(View.VISIBLE);
+    }else{
+        appBar.setVisibility(View.GONE);
+        toolbar.setVisibility(View.GONE);
+        gradient.setVisibility(View.GONE);
     }
   }
 
